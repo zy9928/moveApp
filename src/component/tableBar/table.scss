@@ -1,0 +1,22 @@
+
+.navBarBox{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-around;
+  height: 44px;
+  // 上边框
+  &::after{
+    @include borderPhone(top, #E4E4E4);
+  }
+  .navListItem{
+    flex: 1;
+    // 居中
+    @include flexCenter(all);
+    &>img{
+      height: 50%;
+    }
+  }
+}

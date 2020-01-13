@@ -1,0 +1,54 @@
+/* 
+  居中的混入
+  type传入居中方向：all: 水平垂直居中；x：水平居中；y：垂直居中
+*/
+@mixin flexCenter($type) {
+  display: flex;
+  @if $type == 'all' {
+    justify-content: center;
+    align-items: center;
+  }@else if $type == 'x' {
+    justify-content: center;
+  }@else if $type == 'y' {
+    align-items: center;
+  }
+}
+
+/* 
+  1px的边框
+  direction传入方向；color传入颜色
+*/
+// 水平方向
+@mixin horizontal {
+  width: 100%;
+  height: 1px;
+  left: 0;
+  transform: scaleY(0.5);
+}
+// 垂直方向
+@mixin vertail {
+  transform: scaleX(0.5);
+  width: 1px;
+  height: 100%;
+  top: 0;
+}
+@mixin borderPhone($direction, $color) {
+  content: '';
+  display: block;
+  overflow: hidden;
+  background-color: $color;
+  position: absolute;
+  @if $direction == 'left'{
+    @include vertail;
+    left: 0;
+  }@else if $direction == 'right'{
+    @include vertail;
+    right: 0;
+  }@else if $direction == 'top' {
+    @include horizontal;
+    top: 0;
+  }@else if $direction == 'bottom' {
+    @include horizontal;
+    bottom: 0;
+  }
+}
