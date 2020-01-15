@@ -1,0 +1,17 @@
+.clockPage{
+  .pageHeader{
+    height: 84px;
+    position: relative;
+    text-align: center;
+    &>a{
+      position: absolute;
+      display: block;
+      // width: 0.44rem;
+      width: 44px;
+      // height: 0.44rem;
+      height: 44px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

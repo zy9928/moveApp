@@ -6,7 +6,7 @@
   left: 0;
   width: 100%;
   justify-content: space-around;
-  height: 44px;
+  height: 117px;
   // 上边框
   &::after{
     @include borderPhone(top, #E4E4E4);
@@ -16,7 +16,7 @@
     // 居中
     @include flexCenter(all);
     &>img{
-      height: 50%;
+      height: 35%;
     }
   }
 }

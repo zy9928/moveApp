@@ -9,6 +9,40 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <script>
+      // 获得设备像素比
+      var radio = window.devicePixelRatio;
+      // 处理设备像素比，只能是1,2,3
+      radio = radio >= 3 ? 3 : (radio >= 2 ? 2 : 1);
+      // 判断是否有mate标签
+      var viewportDom = document.querySelector('meta[name=viewport]');
+      if(!viewportDom){
+        viewportDom = document.createElement('meta');
+        viewportDom.setAttribute('name', 'viewport');
+      }
+      // 计算页面缩放比例
+      var scale = 1 / radio;
+      var content = 'width=device-width,initial-scale='+scale+', maximum-scale='+scale+', minimum-scale='+scale+', user-scaleable=no';
+      viewportDom.setAttribute('content', content);
+      // 添加meta标签
+      document.head.appendChild(viewportDom);
+
+      function resetRemUnit() {
+        // 控制计算rem的最大最小适配页面
+        var min = 320 * radio;
+        var max = 540 * radio;
+        var width = document.documentElement.clientWidth || window.innerWidth || document.documentElement.getBoundingClientRect;
+        if(width < min){
+          width = min;
+        }else if(width > max){
+          width = max;
+        }
+        // 计算rem
+        document.documentElement.style.fontSize = (width * 100 / 640) + 'px';
+      }
+      resetRemUnit();
+      window.onresize = resetRemUnit;
+    </script>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a

@@ -5,3 +5,12 @@ html, body{
   position: relative;
   overflow: hidden;
 }
+
+// 一级路由页面盒子
+.page{
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  bottom: 117px;
+}
